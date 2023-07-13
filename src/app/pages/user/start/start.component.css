@@ -1,0 +1,13 @@
+.boton-espaciado {
+    margin: 0 10px;
+}
+
+@media print {
+    /* Insertar un salto de página antes del temporizador */
+    .col-md-3:before {
+        content: "";
+        display: block;
+        page-break-before: always;
+    }
+}
+

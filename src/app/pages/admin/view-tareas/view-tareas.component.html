@@ -1,0 +1,25 @@
+<mat-card class="mt10" *ngFor = "let t of tareas">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>
+          {{ t.titulo }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{ t.categoria.titulo }}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" [routerLink] = "'/admin/ver-preguntas/'+t.tareaId+'/'+t.titulo">Preguntas</button>
+        <button mat-stroked-button color="primary" class="ml20">Puntos máximos {{ t.puntosMaximos }}</button>
+        <button mat-stroked-button color="primary" class="ml20">Preguntas {{ t.numeroDePreguntas }}</button>
+        <button [routerLink] = "'/admin/tarea/'+t.tareaId" mat-flat-button color="primary" class="ml20">Actualizar</button>
+        <button mat-flat-button color="warn" class="ml10" (click) = "eliminarTarea(t.tareaId)">Eliminar</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+  
+  <div class="container text-center mt20">
+    <button routerLink="/admin/add-tarea" mat-raised-button color="primary">Agregar Tarea</button>
+  </div>
+  

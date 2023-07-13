@@ -1,0 +1,24 @@
+<mat-card class="mt10" *ngFor = "let c of categorias">
+  <mat-list>
+    <div mat-subheader>Listado de Categorias</div>
+  </mat-list>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>
+        {{ c.titulo }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{ c.descripcion }}
+      </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="warn" class="ml10" (click) = "eliminarCategoria(c.categoriaId)">Eliminar</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+
+<div class="container text-center mt20">
+  <button routerLink="/admin/add-categoria" mat-raised-button color="primary">Agregar categoria</button>
+</div>
+

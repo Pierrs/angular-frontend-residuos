@@ -1,0 +1,36 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+      <h1>Tareas disponibles</h1>
+      <div class="row mt20" *ngIf = "tareas">
+        <div class="col-md-6" *ngFor = "let t of tareas">
+          <mat-card class="mb20">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image">
+              </div>
+              <mat-card-title>
+                {{ t.titulo }}
+              </mat-card-title>
+              <mat-card-subtitle>
+                {{ t.categoria.titulo }}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ t.descripcion }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button color="accent" [routerLink] = "'/user-dashboard/instrucciones/'+t.tareaId">Empezar</button>
+              <button mat-button color="accent">Preguntas : {{ t.numeroDePreguntas }}</button>
+              <button mat-button color="accent">Importacia : {{ t.puntosMaximos }}</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <div class="col-md-12" *ngIf = "tareas.length == 0">
+          <mat-card>
+            <mat-card-content>
+              <h1>No hay tareas en esta categoría</h1>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
